@@ -1,0 +1,45 @@
+# Xcode
+build/
+DerivedData/
+*.xcuserdata/
+*.xcuserstate
+project.xcworkspace/xcuserdata/
+*.moved-aside
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xccheckout
+*.xcscheme
+!*.xcscheme
+xcuserdata/
+
+# Archives / IPAs (CI produces these as artifacts instead)
+*.xcarchive
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# CocoaPods / SPM
+Pods/
+.build/
+.swiftpm/
+Package.resolved
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Credentials - never commit
+*.p12
+*.mobileprovision
+*.provisionprofile
+ExportOptions.plist
+AuthKey_*.p8

@@ -1,0 +1,170 @@
+name: Beta IPA (devbeta)
+
+# Builds an unsigned sideloadable IPA for every push to devbeta.
+# No Apple Developer secrets required: the IPA is unsigned so you
+# re-sign on install with AltStore / Sideloadly / TrollStore etc.
+# For a signed TestFlight build, see the optional `signed` job below.
+on:
+  push:
+    branches: [devbeta]
+  pull_request:
+    branches: [devbeta]
+  workflow_dispatch:
+    inputs:
+      version_suffix:
+        description: "Beta suffix (e.g. b1). Default: run number"
+        required: false
+        default: ""
+
+env:
+  PROJECT: EmGestie.xcodeproj
+  SCHEME: EmGestie
+  CONFIGURATION: Release
+  BUNDLE_ID: dev.emgestie.app
+
+jobs:
+  beta-unsigned:
+    name: Build unsigned beta IPA
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Show Xcode / SDKs
+        run: |
+          xcodebuild -version
+          xcodebuild -showsdks | head -n 20
+
+      - name: Resolve beta version
+        id: ver
+        run: |
+          SUFFIX="${{ inputs.version_suffix }}"
+          if [ -z "$SUFFIX" ]; then SUFFIX="b${{ github.run_number }}"; fi
+          echo "suffix=$SUFFIX" >> "$GITHUB_OUTPUT"
+          echo "Beta suffix: $SUFFIX"
+
+      # CURRENT_PROJECT_VERSION override stamps each beta with the run number
+      # so sideloaders see it as an update.
+      - name: Build .app (no code sign)
+        run: |
+          set -euo pipefail
+          mkdir -p build/unsigned
+          xcodebuild \
+            -project "$PROJECT" \
+            -scheme "$SCHEME" \
+            -configuration "$CONFIGURATION" \
+            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            CURRENT_PROJECT_VERSION="${{ github.run_number }}" \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            CONFIGURATION_BUILD_DIR="$PWD/build/unsigned" \
+            build
+
+      - name: Package unsigned IPA
+        run: |
+          set -euo pipefail
+          APP=$(ls -d build/unsigned/*.app | head -n 1)
+          echo "App: $APP"
+          rm -rf Payload EmGestie-beta-*.ipa
+          mkdir -p Payload
+          cp -R "$APP" Payload/
+          IPA="EmGestie-beta-${{ steps.ver.outputs.suffix }}.ipa"
+          zip -qry "$IPA" Payload
+          echo "IPA=$IPA" >> "$GITHUB_ENV"
+          ls -lh "$IPA"
+          unzip -l "$IPA" | head -n 20
+
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: EmGestie-beta-${{ steps.ver.outputs.suffix }}
+          path: EmGestie-beta-*.ipa
+          retention-days: 30
+
+  # Creates a versioned GitHub pre-release so betas are easy to find
+  # and download on the iPhone. Only runs on pushes (not PRs).
+  release:
+    name: Publish beta pre-release
+    needs: beta-unsigned
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download IPA artifact
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+
+      - name: Create pre-release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: beta-${{ github.run_number }}
+          target_commitish: devbeta
+          prerelease: true
+          generate_release_notes: true
+          name: Beta b${{ github.run_number }} (devbeta)
+          files: dist/**/*.ipa
+
+  # OPTIONAL: signed build for direct install / TestFlight.
+  # Enable by adding these repo secrets and uncommenting `if:` below:
+  #   APPLE_CERT_P12_BASE64, APPLE_CERT_PASSWORD,
+  #   APPLE_PROVISION_PROFILE_BASE64, APPLE_TEAM_ID, APPLE_KEYCHAIN_PASSWORD
+  # signed:
+  #   name: Build signed IPA
+  #   runs-on: macos-latest
+  #   if: ${{ secrets.APPLE_CERT_P12_BASE64 != '' }}
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Import cert + profile
+  #       env:
+  #         CERT_P12: ${{ secrets.APPLE_CERT_P12_BASE64 }}
+  #         CERT_PW: ${{ secrets.APPLE_CERT_PASSWORD }}
+  #         PROFILE: ${{ secrets.APPLE_PROVISION_PROFILE_BASE64 }}
+  #         KEYCHAIN_PW: ${{ secrets.APPLE_KEYCHAIN_PASSWORD }}
+  #       run: |
+  #         set -euo pipefail
+  #         PP_DIR=~/Library/MobileDevice/Provisioning\ Profiles
+  #         mkdir -p "$PP_DIR"
+  #         echo "$PROFILE" | base64 -d > "$PP_DIR/beta.mobileprovision"
+  #         KC=$RUNNER_TEMP/build.keychain
+  #         security create-keychain -p "$KEYCHAIN_PW" "$KC"
+  #         security set-keychain-settings -lut 21600 "$KC"
+  #         security unlock-keychain -p "$KEYCHAIN_PW" "$KC"
+  #         echo "$CERT_P12" | base64 -d > $RUNNER_TEMP/cert.p12
+  #         security import $RUNNER_TEMP/cert.p12 -k "$KC" -P "$CERT_PW" -T /usr/bin/codesign
+  #         security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PW" "$KC"
+  #         security list-keychains -d user -s "$KC" $(security list-keychains -d user | tr -d '"')
+  #     - name: Archive (signed)
+  #       run: |
+  #         xcodebuild archive \
+  #           -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION" \
+  #           -destination 'generic/platform=iOS' \
+  #           -archivePath build/EmGestie.xcarchive \
+  #           CURRENT_PROJECT_VERSION="${{ github.run_number }}" \
+  #           DEVELOPMENT_TEAM="${{ secrets.APPLE_TEAM_ID }}" \
+  #           -allowProvisioningUpdates
+  #     - name: Export IPA
+  #       run: |
+  #         cat > $RUNNER_TEMP/ExportOptions.plist <<EOF
+  #         <?xml version="1.0" encoding="UTF-8"?>
+  #         <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+  #         <plist version="1.0"><dict>
+  #           <key>method</key><string>development</string>
+  #           <key>teamID</key><string>${{ secrets.APPLE_TEAM_ID }}</string>
+  #           <key>compileBitcode</key><false/>
+  #           <key>destination</key><string>export</string>
+  #         </dict></plist>
+  #         EOF
+  #         xcodebuild -exportArchive \
+  #           -archivePath build/EmGestie.xcarchive \
+  #           -exportPath build/export \
+  #           -exportOptionsPlist $RUNNER_TEMP/ExportOptions.plist
+  #     - name: Upload signed IPA
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: EmGestie-beta-signed-b${{ github.run_number }}
+  #         path: build/export/*.ipa
+  #         retention-days: 30

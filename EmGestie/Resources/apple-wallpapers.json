@@ -1,0 +1,226 @@
+[
+  {
+    "id": 0,
+    "name": "Default Wallpapers",
+    "description": "Default Collections wallpapers",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/Defaults.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/Defaults.png"
+  },
+  {
+    "id": 32,
+    "name": "iPhone 18 Pro",
+    "description": "*iOS 27RC+",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iPhone%2018%20Pro.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPhone%2018%20Pro.png"
+  },
+  {
+    "id": 31,
+    "name": "iPhone 17e",
+    "description": "*iOS 26.3.1+",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iPhone17e.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPhone17e.png"
+  },
+  {
+    "id": 30,
+    "name": "iPhone Air",
+    "description": "*15 Pro or newer, iOS 26+",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iPhone%20Air.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPhoneAir.png"
+  },
+  {
+    "id": 29,
+    "name": "iPhone 17 Pro",
+    "description": "*iOS 26+",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iPhone%2017%20Pro.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPhone17Pro.png"
+  },
+  {
+    "id": 28,
+    "name": "iPhone 17",
+    "description": "*iOS 26+",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iPhone%2017.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPhone17.png"
+  },
+  {
+    "id": 27,
+    "name": "iPhone 16 Pro",
+    "description": "*15 Pro or newer, iOS 18+",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iPhone%2016%20Pro.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPhone16Pro.png"
+  },
+  {
+    "id": 26,
+    "name": "iPhone 16",
+    "description": "*iOS 18+",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iPhone%2016.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPhone16.png"
+  },
+  {
+    "id": 24,
+    "name": "iPhone 16e",
+    "description": "*iOS 18+",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iPhone%2016e.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPhone16e.png"
+  },
+  {
+    "id": 23,
+    "name": "iPhone 15 Pro",
+    "description": "",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iPhone15Pro.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPhone15Pro.png"
+  },
+  {
+    "id": 22,
+    "name": "iPhone 15",
+    "description": "",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iPhone15.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPhone15.png"
+  },
+  {
+    "id": 21,
+    "name": "iPhone 14 Pro",
+    "description": "",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iPhone14Pro.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPhone14Pro.png"
+  },
+  {
+    "id": 20,
+    "name": "iPhone 14",
+    "description": "",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iPhone14.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPhone14.png"
+  },
+  {
+    "id": 19,
+    "name": "iPhone SE 3rd Gen",
+    "description": "",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iPhoneSEGen3.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPhoneSEGen3.png"
+  },
+  {
+    "id": 18,
+    "name": "iPhone 13 Pro",
+    "description": "",
+    "url": "https://atums.world/raw/iPhone13Pro.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPhone13Pro.png"
+  },
+  {
+    "id": 17,
+    "name": "iPhone 13",
+    "description": "",
+    "url": "https://atums.world/raw/iPhone13Descriptors.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPhone13.png"
+  },
+  {
+    "id": 16,
+    "name": "iPhone 12 Pro",
+    "description": "",
+    "url": "https://atums.world/raw/iPhone12Pro.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPhone12Pro.png"
+  },
+  {
+    "id": 15,
+    "name": "iPhone 12",
+    "description": "",
+    "url": "https://atums.world/raw/iPhone12.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPhone12.png"
+  },
+  {
+    "id": 14,
+    "name": "iPhone SE 2nd Gen",
+    "description": "",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iPhoneSEGen2.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPhoneSEGen2.png"
+  },
+  {
+    "id": 13,
+    "name": "iPhone 11 Pro",
+    "description": "",
+    "url": "https://atums.world/raw/iPhone11Pro.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPhone11Pro.png"
+  },
+  {
+    "id": 12,
+    "name": "iPhone 11",
+    "description": "",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iPhone11.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPhone11.png"
+  },
+  {
+    "id": 11,
+    "name": "iPad mini 6th Gen",
+    "description": "",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iPadMiniGen6.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPadMiniGen6.png"
+  },
+  {
+    "id": 10,
+    "name": "iPad Air 6th Gen",
+    "description": "",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iPadAirGen6.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPadAirGen6.png"
+  },
+  {
+    "id": 9,
+    "name": "iPad Air 5th Gen",
+    "description": "",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iPadAirGen5.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPadAirGen5.png"
+  },
+  {
+    "id": 8,
+    "name": "iPad Air 4th Gen",
+    "description": "",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iPadAirGen4.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iPadAirGen4.png"
+  },
+  {
+    "id": 7,
+    "name": "iOS 17",
+    "description": "",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iOS17.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iOS17.png"
+  },
+  {
+    "id": 6,
+    "name": "iOS 16",
+    "description": "",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iOS16.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iOS16.png"
+  },
+  {
+    "id": 5,
+    "name": "iOS 15",
+    "description": "",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iOS15.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iOS15.png"
+  },
+  {
+    "id": 4,
+    "name": "Lake (iOS 14)",
+    "description": "",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/Lake.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/Lake.png"
+  },
+  {
+    "id": 3,
+    "name": "Desert",
+    "description": "",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/Desert.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/Desert.png"
+  },
+  {
+    "id": 2,
+    "name": "iOS 14",
+    "description": "",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iOS14.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iOS14.png"
+  },
+  {
+    "id": 1,
+    "name": "iOS 13",
+    "description": "",
+    "url": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/wallpapers/apple/iOS13.tendies",
+    "preview": "https://raw.githubusercontent.com/SerStars/nugget-wallpapers/main/previews/apple/images/iOS13.png"
+  }
+]
